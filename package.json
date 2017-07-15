@@ -1,0 +1,94 @@
+{
+    "name": "autorunscript",
+    "displayName": "vscode-autorunscript",
+    "description": "Auto Run Script",
+    "version": "0.0.1",
+    "publisher": "cyitianyou",
+    "engines": {
+        "vscode": "^1.14.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.AutoRunScript",
+                "title": "自动运行脚本"
+            },
+            {
+                "command": "extension.AutoRunScriptInNode",
+                "title": "自动运行脚本(Node环境)"
+            }
+        ],
+        "menus": {
+            "explorer/context": [
+                {
+                    "when": "resourceLangId == bat && config.autorunscript.useNode == false",
+                    "command": "extension.AutoRunScript",
+                    "group": "navigation@1"
+                },
+                {
+                    "when": "resourceLangId == bat",
+                    "command": "extension.AutoRunScriptInNode",
+                    "group": "navigation@1"
+                }
+            ],
+            "editor/context": [
+                {
+                    "when": "editorLangId == bat && config.autorunscript.useNode == false",
+                    "command": "extension.AutoRunScript",
+                    "group": "navigation@1"
+                },
+                {
+                    "when": "editorLangId == bat",
+                    "command": "extension.AutoRunScriptInNode",
+                    "group": "navigation@1"
+                }
+            ]
+        },
+        "configuration": {
+			"type": "object",
+			"title": "AutoRunScript Configuration",
+			"properties": {
+				"autorunscript.useNode": {
+					"type": "boolean",
+					"default": true,
+					"description": "脚本默认在Node.js环境下运行"
+                },
+                "autorunscript.nodePath": {
+					"type": "string",
+					"default": "C:\\Program Files\\nodejs\\",
+					"description": "Node.js在电脑中的安装路径"
+                },
+                "autorunscript.pathType": {
+                    "type": "string",
+                    "enum": [
+						"Relative",
+						"Absolute"
+					],
+					"default": "Relative",
+					"description": "使用脚本的相对路径(Relative)或者绝对路径(Absolute)调用"
+				}
+			}
+		}
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    },
+    "dependencies": {}
+}
