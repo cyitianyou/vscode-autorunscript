@@ -3,7 +3,7 @@
     "displayName": "vscode-autorunscript",
     "description": "Auto Run Script",
     "icon": "images/auto-run-script.jpg",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "cyitianyou",
     "repository": {
         "type": "git",
@@ -29,6 +29,10 @@
             {
                 "command": "extension.AutoRunScriptInNode",
                 "title": "自动运行脚本(Node环境)"
+            },
+            {
+                "command": "extension.AutoRunScriptBySudo",
+                "title": "自动运行脚本<Sudo>"
             }
         ],
         "menus": {
@@ -41,6 +45,16 @@
                     "when": "resourceLangId == bat",
                     "command": "extension.AutoRunScriptInNode",
                     "group": "navigation@1"
+                },
+                {
+                    "when": "resourceLangId == shellscript && config.autorunscript.useNode == false",
+                    "command": "extension.AutoRunScript",
+                    "group": "navigation@2"
+                },
+                {
+                    "when": "resourceLangId == shellscript && config.autorunscript.useNode == false",
+                    "command": "extension.AutoRunScriptBySudo",
+                    "group": "navigation@2"
                 }
             ],
             "editor/context": [{
@@ -52,6 +66,16 @@
                     "when": "editorLangId == bat",
                     "command": "extension.AutoRunScriptInNode",
                     "group": "navigation@1"
+                },
+                {
+                    "when": "editorLangId == shellscript && config.autorunscript.useNode == false",
+                    "command": "extension.AutoRunScript",
+                    "group": "navigation@2"
+                },
+                {
+                    "when": "editorLangId == shellscript && config.autorunscript.useNode == false",
+                    "command": "extension.AutoRunScriptBySudo",
+                    "group": "navigation@2"
                 }
             ]
         },
