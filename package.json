@@ -2,8 +2,15 @@
     "name": "autorunscript",
     "displayName": "vscode-autorunscript",
     "description": "Auto Run Script",
+    "icon": "images/auto-run-script.jpg",
     "version": "0.0.2",
     "publisher": "cyitianyou",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/cyitianyou/vscode-autorunscript.git"
+    },
+    "bugs": "https://github.com/cyitianyou/vscode-autorunscript",
+    "homepage": "https://github.com/cyitianyou/vscode-autorunscript/blob/master/README.md",
     "engines": {
         "vscode": "^1.14.0"
     },
