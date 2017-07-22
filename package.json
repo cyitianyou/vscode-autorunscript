@@ -22,7 +22,8 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
+        "commands": [
+            {
                 "command": "extension.AutoRunScript",
                 "title": "自动运行脚本"
             },
@@ -36,7 +37,8 @@
             }
         ],
         "menus": {
-            "explorer/context": [{
+            "explorer/context": [
+                {
                     "when": "resourceLangId == bat && config.autorunscript.useNode == false",
                     "command": "extension.AutoRunScript",
                     "group": "navigation@1"
@@ -57,7 +59,8 @@
                     "group": "navigation@2"
                 }
             ],
-            "editor/context": [{
+            "editor/context": [
+                {
                     "when": "editorLangId == bat && config.autorunscript.useNode == false",
                     "command": "extension.AutoRunScript",
                     "group": "navigation@1"
