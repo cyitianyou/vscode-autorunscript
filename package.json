@@ -47,12 +47,12 @@
                     "group": "navigation@1"
                 },
                 {
-                    "when": "resourceLangId == shellscript && config.autorunscript.useNode == false",
+                    "when": "resourceLangId == shellscript",
                     "command": "extension.AutoRunScript",
                     "group": "navigation@2"
                 },
                 {
-                    "when": "resourceLangId == shellscript && config.autorunscript.useNode == false",
+                    "when": "resourceLangId == shellscript",
                     "command": "extension.AutoRunScriptBySudo",
                     "group": "navigation@2"
                 }
@@ -68,12 +68,12 @@
                     "group": "navigation@1"
                 },
                 {
-                    "when": "editorLangId == shellscript && config.autorunscript.useNode == false",
+                    "when": "editorLangId == shellscript",
                     "command": "extension.AutoRunScript",
                     "group": "navigation@2"
                 },
                 {
-                    "when": "editorLangId == shellscript && config.autorunscript.useNode == false",
+                    "when": "editorLangId == shellscript",
                     "command": "extension.AutoRunScriptBySudo",
                     "group": "navigation@2"
                 }
