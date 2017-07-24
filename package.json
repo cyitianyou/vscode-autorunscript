@@ -3,7 +3,7 @@
     "displayName": "vscode-autorunscript",
     "description": "Auto Run Script",
     "icon": "images/auto-run-script.jpg",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "cyitianyou",
     "repository": {
         "type": "git",
@@ -22,17 +22,23 @@
     ],
     "main": "./out/src/extension",
     "contributes": {
-        "commands": [{
+        "commands": [
+            {
                 "command": "extension.AutoRunScript",
                 "title": "自动运行脚本"
             },
             {
                 "command": "extension.AutoRunScriptInNode",
                 "title": "自动运行脚本(Node环境)"
+            },
+            {
+                "command": "extension.AutoRunScriptBySudo",
+                "title": "自动运行脚本<Sudo>"
             }
         ],
         "menus": {
-            "explorer/context": [{
+            "explorer/context": [
+                {
                     "when": "resourceLangId == bat && config.autorunscript.useNode == false",
                     "command": "extension.AutoRunScript",
                     "group": "navigation@1"
@@ -41,9 +47,20 @@
                     "when": "resourceLangId == bat",
                     "command": "extension.AutoRunScriptInNode",
                     "group": "navigation@1"
+                },
+                {
+                    "when": "resourceLangId == shellscript",
+                    "command": "extension.AutoRunScript",
+                    "group": "navigation@2"
+                },
+                {
+                    "when": "resourceLangId == shellscript",
+                    "command": "extension.AutoRunScriptBySudo",
+                    "group": "navigation@2"
                 }
             ],
-            "editor/context": [{
+            "editor/context": [
+                {
                     "when": "editorLangId == bat && config.autorunscript.useNode == false",
                     "command": "extension.AutoRunScript",
                     "group": "navigation@1"
@@ -52,6 +69,16 @@
                     "when": "editorLangId == bat",
                     "command": "extension.AutoRunScriptInNode",
                     "group": "navigation@1"
+                },
+                {
+                    "when": "editorLangId == shellscript",
+                    "command": "extension.AutoRunScript",
+                    "group": "navigation@2"
+                },
+                {
+                    "when": "editorLangId == shellscript",
+                    "command": "extension.AutoRunScriptBySudo",
+                    "group": "navigation@2"
                 }
             ]
         },
