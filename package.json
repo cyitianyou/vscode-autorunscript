@@ -3,7 +3,7 @@
     "displayName": "vscode-autorunscript",
     "description": "Auto Run Script",
     "icon": "images/auto-run-script.jpg",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "cyitianyou",
     "repository": {
         "type": "git",
@@ -18,17 +18,18 @@
         "Other"
     ],
     "activationEvents": [
-        "*"
+        "workspaceContains:*.bat"
     ],
     "main": "./out/src/extension",
     "contributes": {
         "commands": [{
                 "command": "extension.AutoRunScript",
-                "title": "自动运行脚本"
+                "title": "%extension.command.autorunscript.title%"
             },
             {
                 "command": "extension.AutoRunScriptInNode",
-                "title": "自动运行脚本(Node环境)"
+                "title": "%extension.command.autorunscriptinnode.title%",
+                "category": ""
             }
         ],
         "menus": {
@@ -62,12 +63,12 @@
                 "autorunscript.useNode": {
                     "type": "boolean",
                     "default": true,
-                    "description": "脚本默认在Node.js环境下运行"
+                    "description": "%extension.properties.usenode%"
                 },
                 "autorunscript.nodePath": {
                     "type": "string",
                     "default": "C:\\Program Files\\nodejs\\",
-                    "description": "Node.js在电脑中的安装路径"
+                    "description": "%extension.properties.nodepath%"
                 },
                 "autorunscript.pathType": {
                     "type": "string",
@@ -76,7 +77,7 @@
                         "Absolute"
                     ],
                     "default": "Relative",
-                    "description": "使用脚本的相对路径(Relative)或者绝对路径(Absolute)调用"
+                    "description": "%extension.properties.pathtype%"
                 }
             }
         }

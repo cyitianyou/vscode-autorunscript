@@ -1,0 +1,7 @@
+{
+    "extension.command.autorunscript.title": "Auto Run Script",
+    "extension.command.autorunscriptinnode.title": "Auto Run Script(In Node)",
+    "extension.properties.usenode": "The script is run by default in the Node.js environment",
+    "extension.properties.nodepath": "Node.js installation path in the PC",
+    "extension.properties.pathtype": "Using the relative path of the script (Relative) or the absolute path (Absolute) call"
+}

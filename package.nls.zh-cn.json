@@ -1,0 +1,7 @@
+{
+    "extension.command.autorunscript.title": "自动运行脚本",
+    "extension.command.autorunscriptinnode.title": "自动运行脚本(Node环境)",
+    "extension.properties.usenode": "脚本默认在Node.js环境下运行",
+    "extension.properties.nodepath": "Node.js在电脑中的安装路径",
+    "extension.properties.pathtype": "使用脚本的相对路径(Relative)或者绝对路径(Absolute)调用"
+}
