@@ -3,7 +3,7 @@
     "displayName": "vscode-autorunscript",
     "description": "Auto Run Script",
     "icon": "images/auto-run-script.jpg",
-    "version": "0.0.4",
+    "version": "1.0.0",
     "publisher": "cyitianyou",
     "repository": {
         "type": "git",

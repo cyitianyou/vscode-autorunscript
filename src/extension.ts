@@ -22,12 +22,6 @@ export function activate(context: vscode.ExtensionContext): void {
         if (!e && !e.fsPath) { return; }
         // 获取配置
         let config: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("autorunscript");
-        // 判断路径类型
-        let script: string = e.fsPath;  // 使用绝对路径
-        if (config.get("pathType", "Relative") === "Relative") {
-            script = script.replace(vscode.workspace.rootPath + "\\", ".\\");
-        } // 使用相对路径
-
         // 定义cd命令及参数
         // powershell: cd -Path
         // cmd: cd /d
@@ -35,7 +29,6 @@ export function activate(context: vscode.ExtensionContext): void {
 
         // 创建终端并显示
         let terminal: vscode.Terminal = vscode.window.createTerminal();
-        terminal.show();
 
         // 使用Node环境
         if (config.get("useNode", true) || isNode) {
@@ -44,7 +37,17 @@ export function activate(context: vscode.ExtensionContext): void {
             terminal.sendText(".\\nodevars.bat");
             terminal.sendText(cdCommand + "'" + vscode.workspace.rootPath + "'");
         }
+        // 判断路径类型
+        let fileName: string = e.fsPath.substring(e.fsPath.lastIndexOf("\\") + 1);
+        let script: string = e.fsPath;  // 使用绝对路径
+        if (config.get("pathType", "Relative") === "Relative") {
+            // 使用相对路径
+            script = script.substring(0, script.lastIndexOf("\\"));
+            terminal.sendText(cdCommand + "'" + script + "'");
+            script = ".\\" + fileName;
+        }
 
+        terminal.show();
         terminal.sendText(script);
     };
 
